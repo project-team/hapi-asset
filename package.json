@@ -1,6 +1,6 @@
 {
   "name": "hapi-asset",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/project-team/hapi-asset",
   "dependencies": {
-    "@marcoleo/asset-manager": "0.0.5",
+    "@marcoleo/asset-manager": "1.0.0",
     "hapi": "^8.6.1",
     "minimist": "^1.1.1",
     "xtend": "^4.0.0"

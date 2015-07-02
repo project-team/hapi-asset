@@ -5,6 +5,9 @@
 var Hapi = require('hapi')
 var xtend = require('xtend')
 var minimist = require('minimist')
+
+var assetManager = require('@marcoleo/asset-manager')('corsonode','asset')
+
 var defaults = {
   port: 8989
 }
@@ -20,7 +23,40 @@ function assetsService (opts) {
     reply('Hello World')
   }
 
+  function get (request, reply) {
+
+    var name = request.params.name;
+
+    if (name == "Asset"){
+      assetManager.get({},function(err,docs){
+
+        if(!err)
+          reply(docs)
+        else
+          reply(err)
+
+      });
+    }
+
+  }
+
+  function put (request, reply) {
+    reply('Hello World')
+  }
+
   server.route({ method: 'GET', path: '/', handler: hello })
+
+  server.route({
+    method: 'GET',
+    path: '/{name}',
+    handler: get
+  })
+
+  server.route({
+    method: 'PUT',
+    path: '/{name}',
+    handler: put
+  })
 
   return server
 }
