@@ -41,20 +41,29 @@ function assetsService (opts) {
   }
 
   function put (request, reply) {
-    reply('Hello World')
+
+    var name = request.params.name;
+    var status = request.params.status;
+
+    assetManager.put({name: name, status: status},function(err,docs){
+      if(!err)
+          reply(docs)
+        else
+          reply(err)
+    })
   }
 
   server.route({ method: 'GET', path: '/', handler: hello })
 
   server.route({
     method: 'GET',
-    path: '/{name}',
+    path: '/assets/{name}',
     handler: get
   })
 
   server.route({
-    method: 'PUT',
-    path: '/{name}',
+    method: 'POST',
+    path: '/assets',
     handler: put
   })
 
