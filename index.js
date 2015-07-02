@@ -27,25 +27,30 @@ function assetsService (opts) {
 
     var name = request.params.name;
 
-    if (name == "Asset"){
-      assetManager.get({},function(err,docs){
+    if (name == "" || name == null || name == undefined)
+      assetManager.get({},function (err,docs){
 
         if(!err)
           reply(docs)
         else
           reply(err)
 
-      });
-    }
+      })
+    else
+      assetManager.get({name : name },function (err,docs){
+
+        if(!err)
+          reply(docs[0])
+        else
+          reply(err)
+
+      })
+
 
   }
 
   function put (request, reply) {
-
-    var name = request.params.name;
-    var status = request.params.status;
-
-    assetManager.put({name: name, status: status},function(err,docs){
+    assetManager.put(request.payload,function(err,docs){
       if(!err)
           reply(docs)
         else
@@ -54,6 +59,12 @@ function assetsService (opts) {
   }
 
   server.route({ method: 'GET', path: '/', handler: hello })
+
+  server.route({
+    method: 'GET',
+    path: '/assets',
+    handler: get
+  })
 
   server.route({
     method: 'GET',
