@@ -1,0 +1,26 @@
+{
+  "name": "hapi-asset",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/project-team/hapi-asset.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/project-team/hapi-asset/issues"
+  },
+  "homepage": "https://github.com/project-team/hapi-asset",
+  "dependencies": {
+    "@marcoleo/asset-manager": "0.0.5",
+    "hapi": "^8.6.1",
+    "minimist": "^1.1.1",
+    "xtend": "^4.0.0"
+  }
+}
