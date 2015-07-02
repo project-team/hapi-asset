@@ -75,7 +75,12 @@ function assetsService (opts) {
   server.route({
     method: 'POST',
     path: '/assets',
-    handler: put
+    handler: put,
+    config: {
+        validate: {
+            payload: assetManager.JoiSchema()
+        }
+    }
   })
 
   return server

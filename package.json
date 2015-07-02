@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/project-team/hapi-asset",
   "dependencies": {
-    "@marcoleo/asset-manager": "1.0.0",
+    "@marcoleo/asset-manager": "1.0.6",
     "code": "^1.4.1",
     "hapi": "^8.6.1",
     "lab": "^5.11.1",
